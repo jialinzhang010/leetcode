@@ -1,7 +1,9 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         col = set()
+        # 右上到左下的对角线
         posDiag = set()
+        # 左上到右下的对角线
         negDiag = set()
 
         ans = []
@@ -12,7 +14,7 @@ class Solution:
                 ans.append(["".join(row) for row in board])
                 return
             for c in range(n):
-                if c in col or (r + c) in posDiag or (r -c) in negDiag:
+                if c in col or (r + c) in posDiag or (r - c) in negDiag:
                     continue
                 col.add(c)
                 posDiag.add(r + c)
